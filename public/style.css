@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300&display=swap');
 body {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Barlow', sans-serif;
 }
 
 .router-link-exact-active {
-    background-color: #111;
+    background-color: rgb(80, 82, 105);
 }

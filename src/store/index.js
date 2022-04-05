@@ -30,24 +30,21 @@ const store = new Vuex.Store({
 
       console.log(id);
       let apiURL = `http://localhost:3000/api/v1/todos/${id}`;
-      axios.delete(apiURL, { id: id })
+      axios.delete(apiURL, { data: { id: id }})
     },
     addTodo(state, todo) {
       if (todo.description != "") {
         let apiURL = 'http://localhost:3000/api/v1/todos';
    
-        axios.post(apiURL, todo).then(() => {
-          
+        axios.post(apiURL, todo).then((res) => {
+          state.todos.unshift(res.data);
         }).catch(error => {
             console.log(error)
         });
-
-        state.todos.unshift(todo);
       }
     },
     editTodo(state, updatedTodo) {
       const todoToEditIndex = state.todos.findIndex(todo => todo._id === updatedTodo._id);
-      //console.log(todoToEditIndex, updatedTodo);
 
       let apiURL = `http://localhost:3000/api/v1/todos/${updatedTodo._id}`;
       axios.put(apiURL, { done: updatedTodo.done, description: updatedTodo.description })
@@ -76,7 +73,7 @@ const store = new Vuex.Store({
       commit("deleteTodo", id);
     },
     addTodo({commit, getters}, description) {
-      commit("addTodo", {description, id: getters.maxTodoId + 1, done: false});
+      commit("addTodo", {description, _id: getters.maxTodoId + 1, done: false});
     },
     editTodo({commit}, todo) {
       commit("editTodo", todo);

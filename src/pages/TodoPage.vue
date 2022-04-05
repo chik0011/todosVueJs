@@ -1,8 +1,8 @@
 <template>
   <div class="flex items-center justify-center">
     <div class="w-full flex items-center justify-center font-sans">
-      <div class="rounded p-6 m-4 w-full lg:w-3/4 lg:max-w-lg overflow-y-auto">
-        <div class="mb-4">
+      <div class="rounded p-6 m-4 w-full lg:w-3/4 overflow-y-auto">
+        <div class="mb-5">
           <todo-input />
         </div>
         <todo-sumup />
