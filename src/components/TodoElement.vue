@@ -11,8 +11,8 @@
       <button @click="toggleDone(todo._id)" v-if="!todo.done" class="flex p-2 ml-4 mr-2 border-2 rounded hover:text-white text-green-500 border-green-500 hover:bg-green-500">Fait</button>
       <button @click="toggleDone(todo._id)" v-else-if="todo.done" class="flex p-2 ml-4 mr-2 border-2 rounded hover:text-white text-gray-500 border-gray-500 hover:bg-gray-500">Pas fait</button>
       <button v-if="!isEditable" @click="deleteTodo(todo._id)" class="flex p-2 ml-2 border-2 rounded text-red-500 border-red-500 hover:text-white hover:bg-red-500">Supprimer</button>
-      <button v-if="!isEditable" @click="$router.push({ name: 'todo', params: { id: todo._id } })" class="flex p-2 ml-2 border-2 rounded text-green-500 border-green-500 hover:text-white hover:bg-green-500">Edit Page</button>
-      <button v-if="isEditable" @click="toggleEdit()" class="flex p-2 ml-2 border-2 rounded text-green-500 border-green-500 hover:text-white hover:bg-green-500">Edit</button>
+      <button v-if="!isEditable" @click="$router.push({ name: 'todo', params: { id: todo._id } })" class="flex p-2 ml-2 border-2 rounded text-green-500 border-green-500 hover:text-white hover:bg-green-500">Modifier</button>
+      <button v-if="isEditable" @click="toggleEdit()" class="flex p-2 ml-2 border-2 rounded text-green-500 border-green-500 hover:text-white hover:bg-green-500">Modifier</button>
     </div>
 </template>
 

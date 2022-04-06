@@ -26,11 +26,11 @@ const store = new Vuex.Store({
   },
   mutations: {
     deleteTodo(state, id) {
-      state.todos.splice(state.todos.findIndex(todo => todo._id === id), 1);
-
-      console.log(id);
       let apiURL = `http://localhost:3000/api/v1/todos/${id}`;
       axios.delete(apiURL, { data: { id: id }})
+      .then(response => {
+        state.todos.splice(state.todos.findIndex(todo => todo._id === response.data._id), 1);
+      });
     },
     addTodo(state, todo) {
       if (todo.description != "") {

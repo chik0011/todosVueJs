@@ -57,7 +57,7 @@ exports.deleteItem = async (req, res) => {
 
     Todo.findOneAndDelete(filter)
     .then((todos) => {
-        res.status(200)
+        res.status(200).json(todos)
     })
     .catch(error => res.status(400).json({error}))
 }
